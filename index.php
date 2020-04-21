@@ -1,9 +1,11 @@
 <?php
-    //includes
+    require("includes/functions.php");
+
 ?>
 
 <?php include("includes/header.php"); ?>
-
-    <body>
+<?php include("includes/navigation.php") ?>
+    
+    <p>home</p>
 
 <?php include("includes/footer.php"); ?>
