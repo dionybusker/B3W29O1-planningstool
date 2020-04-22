@@ -10,7 +10,7 @@
 
     <div class="row justify-content-center">
         <?php foreach ($result as $game) { ?>
-            <div class="gamecards col-3 m-2 border">
+            <div class="col-3 m-2 border">
                 <a href="game.php?id=<?php echo $game['id']; ?>">
                     <img class="col-8 my-2 card-img-top" src="img/<?php echo $game['image']; ?>" alt="<?php echo $game['name']; ?>">
                 </a>
