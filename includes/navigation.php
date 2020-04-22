@@ -8,7 +8,7 @@
             <ul class="navbar-nav">
                 <li class="nav-item mx-2"><a class="nav-link btn btn-outline-dark" href="index.php">Home</a></li>
                 <li class="nav-item mx-2"><a class="nav-link btn btn-outline-dark" href="all-games.php">Alle spellen</a></li>
-                <li class="nav-item mx-2"><a class="nav-link btn btn-outline-dark" href="#">Geplande spellen</a></li>
+                <li class="nav-item mx-2"><a class="nav-link btn btn-outline-dark" href="planned-games.php">Geplande spellen</a></li>
                 <li class="nav-item mx-2"><a class="nav-link btn btn-outline-dark" href="add-planning.php">Planning maken</a></li>
             </ul>
         </div>
