@@ -2,6 +2,7 @@
     require("includes/functions.php");
 
     $result = getAllGames();
+    // $idGame = $_GET['id'];
 ?>
 
 <?php include("includes/header.php"); ?>
@@ -14,11 +15,11 @@
 
             <form action="includes/create-planning.php" method="POST">
                 <div class="row col-8">
-                    <label class="col-2">Spel:</label>
+                    <label class="col-2" for="games">Spel:</label>
                     <select class="col-6" name="games">
                         <option>Selecteer een spel</option>
                         <?php foreach ($result as $game) { ?>
-                            <option value="<?php echo $_GET['id']; ?>"><?php echo $game['name']; ?></option>
+                            <option value="<?php echo $game['id']; ?>"><?php echo $game['name']; ?></option>
                         <?php } ?>
                     </select>
                 </div>

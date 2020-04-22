@@ -23,23 +23,40 @@
         return $query->fetch();
     }
 
+    // alle planningen ophalen uit de database
+    // function getAllPlannings() {
+    //     $conn = dbcon();
+    // }
+
     // planning toevoegen
     function createPlanning() {
         $conn = dbcon();
 
         $game = $_POST['games'];
         $explainer = sanitizeData($_POST['explainer']);
-        $valid_explainer = validateExplainer($explainer);
+        // $valid_explainer = validateExplainer($explainer);
         $players = sanitizeData($_POST['players']);
-        $valid_players = validatePlayers($players);
+        // $valid_players = validatePlayers($players);
         $time = $_POST['time'];
+        // $time = date('H:i', strtotime($time));
 
-        if ($valid_explainer == TRUE && $valid_players == TRUE) {
-            $query = $conn->prepare("INSERT INTO planning (game, explainer, players, time) VALUES (:game, :explainer, :players, :time)");
-            $query->bindParam(":game", $game);
-            $query->bindParam(":explainer", $explainer);
-            $query->bindParam(":players", $players);
-            $query->bindParam(":time", $time);
-            $query->execute();
-        }
+        // if ($valid_explainer == TRUE) {
+        //     if ($valid_players == TRUE) {
+                $query = $conn->prepare("INSERT INTO planning (game, explainer, players, time) VALUES (:game, :explainer, :players, :time)");
+                $query->bindParam(":game", $game);
+                $query->bindParam(":explainer", $explainer);
+                $query->bindParam(":players", $players);
+                $query->bindParam(":time", $time);
+                $query->execute();
+        //     }
+        // }
+    }
+
+    // geplande games ophalen
+    function getPlannedGames() {
+        $conn = dbcon();
+
+        $query = $conn->prepare("SELECT * FROM planning");
+        $query->execute();
+        return $query->fetchAll();
     }
