@@ -6,7 +6,6 @@
 ?>
 
 <?php include("includes/header.php"); ?>
-<?php include("includes/navigation.php"); ?>
 
     <div>
         <h3>Planning maken</h3>
@@ -25,8 +24,8 @@
                 </div>
                 
                 <div class="row col-8">
-                    <label class="col-2" for="explainer">Uitlegger:</label>
-                    <input class="col-6" type="text" name="explainer" placeholder="Wie legt het spel uit?">
+                    <label class="col-2" for="leader">Uitlegger:</label>
+                    <input class="col-6" type="text" name="leader" placeholder="Wie legt het spel uit?">
                 </div>
 
                 <div class="row col-8">

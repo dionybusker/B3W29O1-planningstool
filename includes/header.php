@@ -12,3 +12,5 @@
     </head>
 
     <body class="bg-secondary">
+
+    <?php include("includes/navigation.php") ?>

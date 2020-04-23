@@ -6,7 +6,6 @@
 ?>
 
 <?php include("includes/header.php"); ?>
-<?php include("includes/navigation.php") ?>
 
     <div class="row justify-content-center">
         <?php foreach ($result as $game) { ?>
@@ -16,8 +15,7 @@
                 </a>
                 <h4 class="card-title"><?php echo $game['name']; ?></h4>
                 <p id="game<?php echo $game['id']; ?>" class="collapse">
-                    Minimaal aantal spelers: <?php echo $game['min_players']; ?> <br>
-                    Maximaal aantal spelers: <?php echo $game['max_players']; ?> <br>
+                    Aantal spelers: <?php echo $game['min_players'].'-'.$game['max_players']; ?> <br>
                     Duur van het spel: <?php echo $game['play_minutes']; ?> minuten <br>
                     Duur van de uitleg: <?php echo $game['explain_minutes']; ?> minuten
                 </p>

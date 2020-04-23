@@ -5,7 +5,6 @@
 ?>
 
 <?php include("includes/header.php"); ?>
-<?php include("includes/navigation.php"); ?>
 
     <div class="row justify-content-center">
 
@@ -22,8 +21,7 @@
 
         <div class="row col-11 mt-5">
             <p class="col-4">
-                Minimum aantal spelers: <?php echo $result['min_players']; ?> <br>
-                Maximum aantal spelers: <?php echo $result['max_players']; ?> <br>
+                Aantal spelers: <?php echo $result['min_players'].'-'.$result['max_players']; ?> <br>
                 Duur van het spel: <?php echo $result['play_minutes']; ?> minuten <br>
                 Duur van de uitleg: <?php echo $result['explain_minutes']; ?> minuten <br><br>
 
