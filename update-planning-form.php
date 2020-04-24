@@ -1,5 +1,5 @@
 <?php
-    require("includes/functions.php");
+    require_once("includes/functions.php");
 
     $id = $_GET['id'];
     $planning = getPlanningById($id);
@@ -13,23 +13,26 @@
             Op deze pagina kun je de planning bewerken.
 
             <form action="includes/update-planning.php" method="POST">
-                <div class="row col-8">
+                <div class="row col-8 my-3">
                     <label class="col-2" for="leader">Spelleider:</label>
                     <input class="col-6" type="text" name="leader" value="<?php echo $planning['leader'] ?>">
                 </div>
 
-                <div class="row col-8">
+                <div class="row col-8 my-3">
                     <label class="col-2" for="players">Spelers:</label>
                     <input class="col-6" type="text" name="players" value="<?php echo $planning['players'] ?>"> <br>
                 </div>
 
-                <div class="row col-8">
+                <div class="row col-8 my-3">
                     <label class="col-2" for="time">Starttijd:</label>
                     <input class="col-6" type="time" name="time" value="<?php echo $planning['time'] ?>">
                 </div>
 
-                <input type="number" name="id" value="<?php echo $id ?>" hidden>
-                <input type="submit" name="update" value="Bewerk planning">
+                <div class="row col-8 my-3">
+                    <input type="number" name="id" value="<?php echo $id ?>" hidden>
+                    <input class="btn btn-info" type="submit" name="update" value="Bewerk planning">
+                </div>
+
             </form>
         </p>
     </div>

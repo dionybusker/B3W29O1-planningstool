@@ -1,6 +1,6 @@
 <?php
 
-    require("functions.php");
+    require_once("functions.php");
     
     deletePlanning($_GET['id']);
 

@@ -1,5 +1,5 @@
 <?php
-    require("includes/functions.php");
+    require_once("includes/functions.php");
 
     $result = getAllGames();
     // $idGame = $_GET['id'];
@@ -38,7 +38,12 @@
                     <input class="col-6" type="time" name="time">
                 </div>
 
-                <input class="btn btn-info my-3" type="submit" value="Maak planning">
+                <div class="row col-8 my-3">
+                    <input class="btn btn-info" type="submit" value="Maak planning">
+
+                </div>
+
+
             </form>
         </p>
     </div>

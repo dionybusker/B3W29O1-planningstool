@@ -1,5 +1,5 @@
 <?php
-    require("includes/functions.php");
+    require_once("includes/functions.php");
 
     // $game = getGame($_GET['id']);
     // $result = getGame($_GET['idGame']);
@@ -26,9 +26,6 @@
             <p class="col-4">
                 Spelleider: <?php echo $result['leader'] ?> <br>
                 Spelers: <?php echo $result['players'] ?> <br>
-                Duur van het spel: <?php echo $result['play_minutes'] ?> minuten <br>
-                Duur van de uitleg: <?php echo $result['explain_minutes'] ?> minuten <br><br>
-
                 Het spel begint om: <?php echo $result['time'] ?> uur. <br><br>
 
                 Klik <a href="<?php echo $result['url'] ?>" target="_blank">hier</a> voor meer informatie over <?php echo $result['name'] ?>!

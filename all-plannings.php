@@ -1,5 +1,5 @@
 <?php
-    require("includes/functions.php");
+    require_once("includes/functions.php");
 
     // $game = getGame($_GET['id']);
     $result = getPlannedGames();
