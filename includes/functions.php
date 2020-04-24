@@ -30,39 +30,38 @@
 
     // planning toevoegen
     function createPlanning() {
-        $conn = dbcon();
 
         $game = $_POST['games'];
-        $explainer = sanitizeData($_POST['leader']);
-        // $valid_explainer = validateExplainer($explainer);
+        $leader = sanitizeData($_POST['leader']);
         $players = sanitizeData($_POST['players']);
-        // $valid_players = validatePlayers($players);
         $time = $_POST['time'];
         // $time = date('H:i', strtotime($time));
 
-        // if ($valid_explainer == TRUE) {
+        $valid_leader = validateLeader($leader);
+        $valid_players = validatePlayers($players);
+
+
+        if ($valid_leader && $valid_players) {
         //     if ($valid_players == TRUE) {
-                $query = $conn->prepare("INSERT INTO planning (game, leader, players, time) VALUES (:game, :leader, :players, :time)");
+            $conn = dbcon();
+            $query = $conn->prepare("INSERT INTO planning (game, leader, players, time) VALUES (:game, :leader, :players, :time)");
                 $query->bindParam(":game", $game);
                 $query->bindParam(":leader", $leader);
                 $query->bindParam(":players", $players);
                 $query->bindParam(":time", $time);
                 $query->execute();
         //     }
-        // }
+        }
     }
 
     // geplande games ophalen
     function getPlannedGames() {
         $conn = dbcon();
 
-        // $query = $conn->prepare("SELECT * FROM planning");
-        // $query->execute();
-        // return $query->fetchAll();
-
-        $query = $conn->prepare("SELECT games.*, planning.*
-                                 FROM games, planning
-                                 WHERE games.id = planning.game");
+        $query = $conn->prepare("SELECT planning.*, games.image
+                                 FROM planning, games
+                                 WHERE planning.game = games.name
+                                 ORDER BY planning.time");
         $query->execute();
         return $query->fetchAll();
     }
@@ -114,7 +113,14 @@
     function getPlanningById($id) {
         $conn = dbcon();
 
-        $query = $conn->prepare("SELECT leader, players, time FROM planning WHERE id = :id");
+        // $query = $conn->prepare("SELECT leader, players, time FROM planning WHERE id = :id");
+        // $query->bindParam(":id", $id);
+        // $query->execute();
+        // return $query->fetch();
+
+        $query = $conn->prepare("SELECT planning.*, games.*
+                                 FROM planning, games
+                                 WHERE planning.id = :id AND planning.game = games.name");
         $query->bindParam(":id", $id);
         $query->execute();
         return $query->fetch();
