@@ -23,11 +23,6 @@
         return $query->fetch();
     }
 
-    // alle planningen ophalen uit de database
-    // function getAllPlannings() {
-    //     $conn = dbcon();
-    // }
-
     // planning toevoegen
     function createPlanning() {
 
@@ -40,18 +35,16 @@
         $valid_leader = validateLeader($leader);
         $valid_players = validatePlayers($players);
 
-
         if ($valid_leader && $valid_players) {
-        //     if ($valid_players == TRUE) {
             $conn = dbcon();
             $query = $conn->prepare("INSERT INTO planning (game, leader, players, time) VALUES (:game, :leader, :players, :time)");
-                $query->bindParam(":game", $game);
-                $query->bindParam(":leader", $leader);
-                $query->bindParam(":players", $players);
-                $query->bindParam(":time", $time);
-                $query->execute();
-        //     }
+            $query->bindParam(":game", $game);
+            $query->bindParam(":leader", $leader);
+            $query->bindParam(":players", $players);
+            $query->bindParam(":time", $time);
+            $query->execute();
         }
+    
     }
 
     // geplande games ophalen
@@ -113,11 +106,6 @@
     function getPlanningById($id) {
         $conn = dbcon();
 
-        // $query = $conn->prepare("SELECT leader, players, time FROM planning WHERE id = :id");
-        // $query->bindParam(":id", $id);
-        // $query->execute();
-        // return $query->fetch();
-
         $query = $conn->prepare("SELECT planning.*, games.*
                                  FROM planning, games
                                  WHERE planning.id = :id AND planning.game = games.name");
@@ -128,6 +116,6 @@
 
 
     // alert ter bevestiging
-    // function alert($msg) {
-    //     echo "<script type='text-javascript'>alert('$msg')</script>";
-    // }
+    function alert($msg) {
+        echo "<script type='text-javascript'>alert('$msg')</script>";
+    }
