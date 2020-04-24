@@ -4,4 +4,4 @@
 
     createPlanning();
 
-    header("Location: ../planned-games.php");
+    header("Location: ../all-plannings.php");
