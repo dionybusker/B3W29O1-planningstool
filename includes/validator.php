@@ -8,11 +8,11 @@
         return $data;
     }
 
-    // uitlegger valideren
-    function validateExplainer($explainer) {
+    // spelleider valideren
+    function validateLeader($leader) {
         $isValid = FALSE;
-        if ($explainer != NULL && $explainer != "") {
-            if (preg_match("/^[a-zA-Z ]*$/", $explainer)) {
+        if ($leader != NULL && $leader != "") {
+            if (preg_match("/^[a-zA-Z ]*$/", $leader)) {
                 $isValid = TRUE;
             }
         }
@@ -23,7 +23,7 @@
     function validatePlayers($players) {
         $isValid = FALSE;
         if ($players != NULL && $players != "") {
-            if (preg_match("/^[a-zA-Z ]*$/", $players)) {
+            if (preg_match("/^[a-zA-Z, ]*$/", $players)) {
                 $isValid = TRUE;
             }
         }
