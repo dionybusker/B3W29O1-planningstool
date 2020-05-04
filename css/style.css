@@ -1,3 +1,44 @@
-/* body {
-    background-color: grey;
-} */
+body {
+    background-image: url("../img/bg.jpg") !important;
+}
+
+.img-game-container {
+    position: relative;
+}
+
+.img-game {
+    opacity: 1;
+    display: block;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+.info-game {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.img-game-container:hover > .img-game {
+    opacity: 0.3;
+}
+
+.img-game-container:hover > .info-game {
+    opacity: 1;
+}
+
+.max-height {
+    max-height: 300px;
+}
+
+.max-height-img {
+    max-height: 250px;
+}
+
+.min-width {
+    min-width: 250px;
+}
