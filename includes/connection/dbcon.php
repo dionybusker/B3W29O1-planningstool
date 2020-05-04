@@ -2,7 +2,7 @@
 
     // connectie met de database
     function dbcon() {
-        $servername = "127.0.0.1";
+        $servername = "localhost";
         $username = "root";
         $password = "mysql";
         $dbname = "planningstool";
