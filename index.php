@@ -1,10 +1,2 @@
 <?php
-    require_once("includes/functions.php");
-
-?>
-
-<?php include("includes/header.php"); ?>
-    
-    <p>home</p>
-
-<?php include("includes/footer.php"); ?>
+    header("Location: all-games.php");
