@@ -9,6 +9,7 @@
 ?>
 
 <?php include("includes/header.php"); ?>
+<?php include("includes/navigation.php") ?>
 
     <div class="row justify-content-center">
         <div class="row col-11">
@@ -27,6 +28,10 @@
                 Spelleider: <?php echo $result['leader'] ?> <br>
                 Spelers: <?php echo $result['players'] ?> <br>
                 Het spel begint om: <?php echo $result['time'] ?> uur. <br><br>
+
+                Duur van de uitleg: <?php echo $result['explain_minutes'] ?> minuten <br>
+                Duur van het spel: <?php echo $result['play_minutes'] ?> minuten <br><br>
+
 
                 Klik <a href="<?php echo $result['url'] ?>" target="_blank">hier</a> voor meer informatie over <?php echo $result['name'] ?>!
             </p>
