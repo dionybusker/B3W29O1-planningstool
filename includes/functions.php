@@ -24,27 +24,14 @@
     }
 
     // planning toevoegen
-    function createPlanning() {
-
-        $game = $_POST['games'];
-        $leader = sanitizeData($_POST['leader']);
-        $players = sanitizeData($_POST['players']);
-        $time = $_POST['time'];
-        // $time = date('H:i', strtotime($time));
-
-        $valid_leader = validateLeader($leader);
-        $valid_players = validatePlayers($players);
-
-        if ($valid_leader && $valid_players) {
-            $conn = dbcon();
-            $query = $conn->prepare("INSERT INTO planning (game, leader, players, time) VALUES (:game, :leader, :players, :time)");
-            $query->bindParam(":game", $game);
-            $query->bindParam(":leader", $leader);
-            $query->bindParam(":players", $players);
-            $query->bindParam(":time", $time);
-            $query->execute();
-        }
-    
+    function createPlanning($game, $leader, $players, $time) {
+        $conn = dbcon();
+        $query = $conn->prepare("INSERT INTO planning (game, leader, players, time) VALUES (:game, :leader, :players, :time)");
+        $query->bindParam(":game", $game);
+        $query->bindParam(":leader", $leader);
+        $query->bindParam(":players", $players);
+        $query->bindParam(":time", $time);
+        $query->execute();
     }
 
     // geplande games ophalen
@@ -77,7 +64,7 @@
     }
 
     // planning bewerken
-    function updatePlanning($id) {
+    function updatePlanning($id, $leader, $players, $time) {
         $conn = dbcon();
 
         $query = $conn->prepare("SELECT * FROM planning WHERE id = :id");
